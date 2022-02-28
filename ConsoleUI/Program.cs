@@ -33,19 +33,66 @@ namespace ConsoleUI
 
             // Create a list of Vehicle called vehicles
 
+            var vehicles = new List<Vehicle>();
+
             /*
              * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
              * - new it up as one of each derived class
              * Set the properties with object initializer syntax
              */
+            Car car = new Car()
+            {
+                Make = "Honda",
+                Year = "2020",
+                Model = "Accord",
+                HasTrunk = true,
+                
+            };
+            
+            Motorcycle motor = new Motorcycle()
+            {
+                Make = "ScoutBike",
+                Year = "1456",
+                Model = "Yamio",
+                HasSideCart = true
+            };
+            Vehicle vehicle = new Car()
+            {
+                Make = "Honda",
+                Year = "1989",
+                Model = "Pilot",
+            };
+            Vehicle vehicle1 = new Motorcycle()
+            {
+                Make = "Totota",
+                Model = "Matrix",
+                Year = "2021",
+                HasSideCart = true,
+            };
+
 
             /*
              * Add the 4 vehicles to the list
              * Using a foreach loop iterate over each of the properties
              */
+            vehicles.Add(car);
+            vehicles.Add(motor);
+            vehicles.Add(vehicle);
+            vehicles.Add(vehicle1);
+
+            foreach(var items in vehicles)
+            {
+                Console.WriteLine($"Make {items.Make},Model {items.Model}, Year {items.Year},");
+                Console.WriteLine($"====================================================");
+                
+            }
+
 
             // Call each of the drive methods for one car and one motorcycle
-
+            car.DriveVirtual();
+            car.DriveAbstract();
+            motor.DriveVirtual();
+            motor.DriveAbstract();
             #endregion            
             Console.ReadLine();
         }
